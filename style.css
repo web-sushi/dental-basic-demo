@@ -23,6 +23,14 @@ body {
   line-height: 1.6;
 }
 
+/* Text max-width for readability */
+.hero-text,
+.doctor-bio,
+.service-card-content,
+.process-step p {
+  max-width: 65ch;
+}
+
 .container {
   max-width: 1200px;
   margin: auto;
@@ -33,7 +41,7 @@ body {
 .header {
   background: var(--bg-card);
   border-bottom: 1px solid var(--border-soft);
-  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.04);
+  box-shadow: 0 2px 12px rgba(0, 0, 0, 0.06);
   position: sticky;
   top: 0;
   z-index: 100;
@@ -43,7 +51,8 @@ body {
   display: flex;
   justify-content: space-between;
   align-items: center;
-  padding: 16px 24px;
+  padding: 20px 24px;
+  min-height: 72px;
 }
 
 .logo-wrapper {
@@ -89,11 +98,12 @@ body {
 }
 
 .logo-tagline {
-  font-size: 0.75rem;
+  font-size: 0.7rem;
   color: var(--text-muted);
   font-weight: 400;
   margin: 0;
   line-height: 1.2;
+  opacity: 0.85;
 }
 
 nav {
@@ -194,15 +204,18 @@ nav a:hover {
 nav .btn-nav-primary {
   background: var(--blue-primary);
   color: white;
-  padding: 10px 20px;
-  border-radius: 6px;
+  padding: 12px 24px;
+  border-radius: 24px;
   text-decoration: none;
-  font-weight: 500;
-  transition: background-color 0.2s;
+  font-weight: 600;
+  transition: background-color 0.2s, transform 0.1s;
+  box-shadow: 0 2px 8px rgba(74, 144, 194, 0.25);
 }
 
 nav .btn-nav-primary:hover {
   background: #3a7ba8;
+  transform: translateY(-1px);
+  box-shadow: 0 4px 12px rgba(74, 144, 194, 0.3);
 }
 
 nav .btn-nav-secondary {
@@ -222,34 +235,43 @@ nav .btn-nav-secondary:hover {
 /* Hero Section - Split Layout */
 .hero {
   background: var(--bg-main);
-  padding: 60px 0;
+  padding: 100px 0;
 }
 
 .hero-content {
   display: grid;
   grid-template-columns: 1fr 1fr;
-  gap: 60px;
+  gap: 80px;
   align-items: center;
 }
 
+.hero-text {
+  max-width: 100%;
+}
+
 .hero-text h2 {
-  font-size: 2.5rem;
+  font-size: 2.75rem;
   font-weight: 700;
   color: var(--text-main);
-  margin: 0 0 20px 0;
+  margin: 0 0 24px 0;
   line-height: 1.2;
+  letter-spacing: -0.02em;
 }
 
 .hero-text p {
   font-size: 1.125rem;
   color: var(--text-muted);
-  margin: 0 0 32px 0;
+  margin: 0 0 40px 0;
+  font-weight: 400;
+  opacity: 0.9;
+  line-height: 1.7;
 }
 
 .hero-actions {
   display: flex;
   gap: 16px;
   flex-wrap: wrap;
+  margin-top: 8px;
 }
 
 .hero-image {
@@ -299,7 +321,7 @@ nav .btn-nav-secondary:hover {
 
 /* Section Styling */
 section {
-  padding: 80px 0;
+  padding: 100px 0;
 }
 
 section h3 {
@@ -356,6 +378,7 @@ section h3 {
   color: var(--text-main);
   line-height: 1.7;
   margin: 0;
+  max-width: 65ch;
 }
 
 /* Services Section */
@@ -377,7 +400,7 @@ section h3 {
 
 .service-card {
   background: var(--bg-card);
-  border-radius: 12px;
+  border-radius: 16px;
   overflow: hidden;
   box-shadow: 0 2px 12px rgba(0, 0, 0, 0.06);
   transition: transform 0.2s, box-shadow 0.2s;
@@ -386,9 +409,11 @@ section h3 {
   flex-direction: column;
 }
 
-.service-card:hover {
-  transform: translateY(-4px);
-  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
+@media (min-width: 769px) {
+  .service-card:hover {
+    transform: translateY(-6px);
+    box-shadow: 0 8px 24px rgba(0, 0, 0, 0.12);
+  }
 }
 
 .service-card-image {
@@ -398,7 +423,7 @@ section h3 {
 }
 
 .service-card-content {
-  padding: 24px;
+  padding: 32px;
   flex: 1;
   display: flex;
   flex-direction: column;
@@ -408,7 +433,8 @@ section h3 {
   font-size: 1.25rem;
   font-weight: 600;
   color: var(--text-main);
-  margin: 0 0 8px 0;
+  margin: 0 0 12px 0;
+  line-height: 1.3;
 }
 
 .service-card p {
@@ -453,19 +479,20 @@ section h3 {
 
 .process-image {
   width: 100%;
-  max-width: 800px;
-  height: 300px;
+  max-width: 700px;
+  height: 280px;
   object-fit: cover;
   border-radius: 12px;
-  margin: 0 auto 48px;
+  margin: 0 auto 64px;
   display: block;
   box-shadow: 0 4px 16px rgba(0, 0, 0, 0.1);
+  opacity: 0.9;
 }
 
 .process-steps {
   display: grid;
   grid-template-columns: repeat(3, 1fr);
-  gap: 32px;
+  gap: 48px;
   max-width: 900px;
   margin: 0 auto;
 }
@@ -476,17 +503,18 @@ section h3 {
 }
 
 .process-step-number {
-  width: 48px;
-  height: 48px;
+  width: 56px;
+  height: 56px;
   background: var(--blue-primary);
   color: white;
   border-radius: 50%;
   display: flex;
   align-items: center;
   justify-content: center;
-  font-size: 1.5rem;
-  font-weight: 600;
-  margin: 0 auto 16px;
+  font-size: 1.75rem;
+  font-weight: 700;
+  margin: 0 auto 20px;
+  box-shadow: 0 4px 12px rgba(74, 144, 194, 0.3);
 }
 
 .process-step h4 {
@@ -523,12 +551,18 @@ section h3 {
   left: 0;
   right: 0;
   bottom: 0;
-  background: rgba(47, 58, 68, 0.4);
+  background: rgba(47, 58, 68, 0.55);
 }
 
 .location .container {
   position: relative;
   z-index: 1;
+  max-width: 600px;
+}
+
+.location h3,
+.location p {
+  text-shadow: 0 2px 8px rgba(0, 0, 0, 0.2);
 }
 
 .location h3 {
@@ -550,10 +584,13 @@ section h3 {
 .location .btn-primary {
   background: white;
   color: var(--blue-primary);
+  font-weight: 600;
+  box-shadow: 0 4px 16px rgba(0, 0, 0, 0.2);
 }
 
 .location .btn-primary:hover {
   background: var(--bg-main);
+  box-shadow: 0 6px 20px rgba(0, 0, 0, 0.25);
 }
 
 .location .btn-secondary {
@@ -721,31 +758,33 @@ section h3 {
 .footer {
   background: var(--bg-card);
   border-top: 1px solid var(--border-soft);
-  padding: 48px 0 24px;
+  padding: 64px 0 32px;
   color: var(--text-muted);
+  margin-top: 0;
 }
 
 .footer-content {
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-  gap: 32px;
-  margin-bottom: 32px;
+  gap: 40px;
+  margin-bottom: 40px;
 }
 
 .footer-section h4 {
-  font-size: 1.125rem;
+  font-size: 1rem;
   font-weight: 600;
   color: var(--text-main);
-  margin: 0 0 16px 0;
+  margin: 0 0 20px 0;
 }
 
 .footer-section p,
 .footer-section a {
   color: var(--text-muted);
   text-decoration: none;
-  margin: 8px 0;
+  margin: 10px 0;
   display: block;
-  line-height: 1.6;
+  line-height: 1.7;
+  font-size: 0.95rem;
 }
 
 .footer-section a:hover {
@@ -927,7 +966,11 @@ section h3 {
   }
 
   section {
-    padding: 60px 0;
+    padding: 80px 0;
+  }
+
+  .hero {
+    padding: 80px 0;
   }
 }
 
